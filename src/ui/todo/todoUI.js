@@ -15,7 +15,7 @@ export default class todoUI {
     }
 
     handleTodoUpdated(data) {
-        const { todo, project } = data;
+        const {  project } = data;
         this.renderProjectTodos(project);
     }
 
@@ -176,7 +176,6 @@ export default class todoUI {
         const descriptionInput = document.createElement("input")
         const dueDateInput = document.createElement("input")
         dueDateInput.setAttribute("type", "date")
-        const projectSelection = document.querySelector("#"+project.name.replace(/\s/g,''))
 
         const saveButton = document.createElement("button")
         saveButton.setAttribute("class", "saveButton")

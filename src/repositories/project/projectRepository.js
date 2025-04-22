@@ -17,10 +17,6 @@ export default class projectRepository {
         this.saveProjectRepo()
         return project
     }
-    
-    getProjectCount() {
-        const projectCount = this.#projects.length()
-    }
 
     getProjects() {
         return this.#projects
@@ -55,8 +51,6 @@ export default class projectRepository {
         const projectRepo = localStorage.getItem("projectRepo")
         const projectRepoJson = JSON.parse(projectRepo)
         this.#projects = []
-        let selectedProjectData = null;
-
 
         projectRepoJson.forEach(projectData => {
             const project = this.#projectFactory.createProject(projectData.name)
@@ -64,7 +58,6 @@ export default class projectRepository {
                 project.setSelected(true)
                 //this.selectProject(project)
                 this.#selectedProject = project
-                selectedProjectData = projectData
             }
             this.#projects.push(project)
         })

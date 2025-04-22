@@ -6,7 +6,6 @@ import projectRepository from './repositories/project/projectRepository';
 import todoRepository from './repositories/todo/todoRepository';
 import projectFactory from './factories/project/projectFactory';
 import todoFactory from './factories/todo/todoFactory';
-import todoItem from './models/todo/todoItem';
 
 
 
