@@ -1,30 +1,28 @@
 export default class todoItem {
+  #complete = false;
+  #active = true;
 
-    #complete = false
-    #active = true
+  constructor(name, description, projectId, dueDate) {
+    this.name = name;
+    this.description = description;
+    this.projectId = projectId;
+    this.dueDate = dueDate;
+    this.id = name.replace(/\s/g, "");
+  }
 
-    constructor(name, description, projectId, dueDate) {
-        this.name = name;
-        this.description = description;
-        this.projectId = projectId;
-        this.dueDate = dueDate;
-        this.id = name.replace(/\s/g,'');
-    }
-        
+  getStatus() {
+    return this.#complete;
+  }
 
-    getStatus() {
-        return this.#complete
-    }
+  getActive() {
+    return this.#active;
+  }
 
-    getActive() {
-        return this.#active
-    }
+  completeStatus() {
+    this.#complete = true;
+  }
 
-    completeStatus() {
-        this.#complete = true
-    }
-    
-    deleteTodo() {
-        this.#active = false
-    }
+  deleteTodo() {
+    this.#active = false;
+  }
 }

@@ -1,22 +1,21 @@
 export default class project {
-    #active = true
-    #selected = false
+  #active = true;
+  #selected = false;
 
-    constructor(name) {
-        this.name = name
-        this.id = name.replace(/\s/g,'')
-    }
-    
-    getSelected() {
-        return this.#selected
-    }
+  constructor(name) {
+    this.name = name;
+    this.id = name.replace(/\s/g, "");
+  }
 
-    getActive() {
-        return this.#active
-    }
+  getSelected() {
+    return this.#selected;
+  }
 
-    setSelected(selected) {
-        this.#selected = selected
-    }
+  getActive() {
+    return this.#active;
+  }
 
+  setSelected(selected) {
+    this.#selected = selected;
+  }
 }

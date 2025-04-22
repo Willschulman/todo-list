@@ -1,117 +1,115 @@
 header {
-    font-size: 36px;
-    background-color: cadetblue;
-    text-align: center;
-    border-radius: 16px;
-    opacity: 80%;
-    margin: 10px;
+  font-size: 36px;
+  background-color: cadetblue;
+  text-align: center;
+  border-radius: 16px;
+  opacity: 80%;
+  margin: 10px;
 }
 
 .project {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #midSection {
-    display: flex;
-    height: 90vh;
-    gap: 10px;
+  display: flex;
+  height: 90vh;
+  gap: 10px;
 }
 
 #sideBar {
-    width: 33%;
-    height: 100%;
-    background-color: lightgray;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
+  width: 33%;
+  height: 100%;
+  background-color: lightgray;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 #sideBar .sidebarInputContainer {
-    display: flex;
+  display: flex;
 }
 
 #todoArea {
-    background-color: lightcyan;
-    border-radius: 16px;
-    width: 100%;
+  background-color: lightcyan;
+  border-radius: 16px;
+  width: 100%;
 }
 
-.sidebarElement, .newProjectButton {
-    font-size: 24px;
-    margin-top: 3%;
-    padding-left: 6%;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    border-radius: 16px;
+.sidebarElement,
+.newProjectButton {
+  font-size: 24px;
+  margin-top: 3%;
+  padding-left: 6%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-radius: 16px;
 }
 
 button.newProjectButton {
   background-color: silver;
 }
 
-
 .sidebarElement:hover {
-    background-color: lightcyan;
+  background-color: lightcyan;
 }
 
 .sidebarElement.selected {
-    background-color: cadetblue;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(-2px);
+  background-color: cadetblue;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-2px);
 }
 
 .todoContainer {
-    box-sizing: border-box;
-    background-color: white;
-    width: clamp(8rem, 14rem, 24rem);
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    padding: 1%;
-    margin: 1%;
-    height: clamp(8rem, 14rem, 24rem);
-    justify-content: space-between;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(-2px);
-
-
+  box-sizing: border-box;
+  background-color: white;
+  width: clamp(8rem, 14rem, 24rem);
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 1%;
+  margin: 1%;
+  height: clamp(8rem, 14rem, 24rem);
+  justify-content: space-between;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-2px);
 }
 
 .todoContainer.existingTodo {
-    border-left-color: blue;
-    border-left-style: solid;
-    border-left-width: 0.4rem;
-
-
+  border-left-color: blue;
+  border-left-style: solid;
+  border-left-width: 0.4rem;
 }
 
 .todoContainer.newTodoCreator {
-    border-style: dashed;
-    opacity: 60%;
-
+  border-style: dashed;
+  opacity: 60%;
 }
 
 .todoContainer .title {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .todoContainer input#createBlockTitle.title {
-    border: none;
-    font-size: 18px;
-    width: 100%;
+  border: none;
+  font-size: 18px;
+  width: 100%;
 }
 
 /* .todoContainer .description {
 } */
 
 .todoContainer .dueDate {
-    text-align: right;
+  text-align: right;
 }
 
-
- .TitleContainer {
-    display: flex;
+.TitleContainer {
+  display: flex;
 }
 
 .titleContainer {
@@ -119,153 +117,161 @@ button.newProjectButton {
 }
 
 .buttonContainer {
-    display: flex;
-    gap: 4px;
-    margin-left: auto;
-    flex-direction: row;
-  }
-  
-  .editButton, .deleteButton, .saveButton, .xButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .editButton:hover {
-    background-color: rgba(0, 0, 255, 0.1);
-  }
-  
-  .deleteButton:hover {
-    background-color: rgba(255, 0, 0, 0.1);
-  }
-  
-  .saveButton:hover {
-    background-color: rgba(77, 255, 0, 0.1);
-  }
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  flex-direction: row;
+}
 
-  .xButton:hover {
-    background-color: rgba(255, 0, 0, 0.1);
-  }
+.editButton,
+.deleteButton,
+.saveButton,
+.xButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.editButton:hover {
+  background-color: rgba(0, 0, 255, 0.1);
+}
 
-  input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease;
-    outline: none;
-    box-sizing: border-box;
-  }
-  
-  input:focus {
-    border-color: cadetblue;
-    box-shadow: 0 0 0 3px rgba(95, 158, 160, 0.2);
-    background-color: white;
-  }
-  
-  input::placeholder {
-    color: #aaa;
-    font-style: italic;
-  }
-  
-  /* Specific input styling */
-  .todoContainer input#createBlockTitle.title {
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: transparent;
-    padding: 8px 0;
-    margin-bottom: 4px;
-    border-bottom: 2px solid transparent;
-  }
-  
-  .todoContainer input#createBlockTitle.title:focus {
-    border-bottom: 2px solid cadetblue;
-    box-shadow: none;
-  }
-  
-  .todoContainer input#createBlockDescription.description {
-    margin-top: 6px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    resize: none;
-  }
-  
-  input[type="date"] {
-    padding: 8px 12px;
-    width: auto;
-    color: #555;
-    background-color: transparent;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-  }
-  
-  input[type="date"]:focus {
-    border-color: cadetblue;
-  }
-  
-  .todoContainer.newTodoCreator {
-    border: 1px dashed #ccc;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-    background-color: #fafafa;
-  }
-  
-  .todoContainer.newTodoCreator:hover {
-    opacity: 1;
-    border-color: cadetblue;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  }
+.deleteButton:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.saveButton:hover {
+  background-color: rgba(77, 255, 0, 0.1);
+}
+
+.xButton:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: cadetblue;
+  box-shadow: 0 0 0 3px rgba(95, 158, 160, 0.2);
+  background-color: white;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Specific input styling */
+.todoContainer input#createBlockTitle.title {
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 8px 0;
+  margin-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.todoContainer input#createBlockTitle.title:focus {
+  border-bottom: 2px solid cadetblue;
+  box-shadow: none;
+}
+
+.todoContainer input#createBlockDescription.description {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  resize: none;
+}
+
+input[type="date"] {
+  padding: 8px 12px;
+  width: auto;
+  color: #555;
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+input[type="date"]:focus {
+  border-color: cadetblue;
+}
+
+.todoContainer.newTodoCreator {
+  border: 1px dashed #ccc;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.todoContainer.newTodoCreator:hover {
+  opacity: 1;
+  border-color: cadetblue;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
 
 .todo-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    width: clamp(8rem, 14rem, 24rem);
-    border-radius: 8px;
-    margin: 10px 0;
-    transition: all 0.3s ease;
-  }
-  
-  .new-todo-button, .newProjectButton {
-    background: none;
-    border: none;
-    padding: 0;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-  }
-  
-  .new-todo-button:hover, .newProjectButton:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
-  }
-  
-  .new-todo-button svg, .newProjectButton svg {
-    transition: all 0.3s ease;
-  }
-  
-  .new-todo-button:hover svg circle, .newProjectButton:hover svg circle {
-    fill: #2E8B57; /* Darker green on hover */
-  }
-  
-  .new-todo-button:active svg, .newProjectButton:active svg {
-    transform: scale(0.95);
-  }
-  
-  .new-todo-button:focus, .newProjectButton:focus {
-    outline: none;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  width: clamp(8rem, 14rem, 24rem);
+  border-radius: 8px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
 
-  .newProjectButton {
-    display: flex;
-    justify-content: center;
-  }
+.new-todo-button,
+.newProjectButton {
+  background: none;
+  border: none;
+  padding: 0;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+.new-todo-button:hover,
+.newProjectButton:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+.new-todo-button svg,
+.newProjectButton svg {
+  transition: all 0.3s ease;
+}
+
+.new-todo-button:hover svg circle,
+.newProjectButton:hover svg circle {
+  fill: #2e8b57; /* Darker green on hover */
+}
+
+.new-todo-button:active svg,
+.newProjectButton:active svg {
+  transform: scale(0.95);
+}
+
+.new-todo-button:focus,
+.newProjectButton:focus {
+  outline: none;
+}
+
+.newProjectButton {
+  display: flex;
+  justify-content: center;
+}

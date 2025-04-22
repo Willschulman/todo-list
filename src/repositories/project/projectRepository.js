@@ -1,69 +1,68 @@
 export default class projectRepository {
-    #projects = []
-    #selectedProject = null
-    #projectFactory
-    #eventBus
+  #projects = [];
+  #selectedProject = null;
+  #projectFactory;
+  #eventBus;
 
+  constructor(projectFactory, eventBus) {
+    this.#projectFactory = projectFactory;
+    this.#eventBus = eventBus;
+  }
 
-    constructor(projectFactory, eventBus) {
-        this.#projectFactory = projectFactory
-        this.#eventBus = eventBus
-    }
+  addProject(name) {
+    const project = this.#projectFactory.createProject(name);
+    this.#projects.push(project);
+    this.selectProject(project);
+    this.saveProjectRepo();
+    return project;
+  }
 
-    addProject(name) {
-        const project = this.#projectFactory.createProject(name)
-        this.#projects.push(project)
-        this.selectProject(project)
-        this.saveProjectRepo()
-        return project
-    }
+  getProjects() {
+    return this.#projects;
+  }
 
-    getProjects() {
-        return this.#projects
-    }
+  getProjectById(projectId) {
+    return this.#projects.find((project) => project.id === projectId);
+  }
 
-    getProjectById(projectId) {
-        return this.#projects.find(project => project.id === projectId)
-    }
+  selectProject(project) {
+    this.#projects.forEach((p) => {
+      p.setSelected(false);
+    });
 
-    selectProject(project) {
-        this.#projects.forEach(p => {
-            p.setSelected(false)
-        });
+    this.#selectedProject = project;
+    project.setSelected(true);
+    this.saveProjectRepo();
+    this.#eventBus.publish("projectSelected", project);
+  }
 
-        this.#selectedProject = project;
+  saveProjectRepo() {
+    const projectsData = this.#projects.map((project) => ({
+      name: project.name,
+      id: project.id,
+      selected: project.getSelected(),
+    }));
+
+    localStorage.setItem("projectRepo", JSON.stringify(projectsData));
+  }
+
+  getProjectRepo() {
+    const projectRepo = localStorage.getItem("projectRepo");
+    const projectRepoJson = JSON.parse(projectRepo);
+    this.#projects = [];
+
+    projectRepoJson.forEach((projectData) => {
+      const project = this.#projectFactory.createProject(projectData.name);
+      if (projectData.selected === true) {
         project.setSelected(true);
-        this.saveProjectRepo()
-        this.#eventBus.publish('projectSelected', project)
+        //this.selectProject(project)
+        this.#selectedProject = project;
+      }
+      this.#projects.push(project);
+    });
+
+    if (this.#selectedProject) {
+      this.#eventBus.publish("projectSelected", this.#selectedProject);
     }
-
-    saveProjectRepo() {
-        const projectsData = this.#projects.map(project => ({
-            name: project.name,
-            id: project.id,
-            selected: project.getSelected()
-        }))
-
-        localStorage.setItem("projectRepo", JSON.stringify(projectsData))
-    }
-
-    getProjectRepo() {
-        const projectRepo = localStorage.getItem("projectRepo")
-        const projectRepoJson = JSON.parse(projectRepo)
-        this.#projects = []
-
-        projectRepoJson.forEach(projectData => {
-            const project = this.#projectFactory.createProject(projectData.name)
-            if (projectData.selected === true) {
-                project.setSelected(true)
-                //this.selectProject(project)
-                this.#selectedProject = project
-            }
-            this.#projects.push(project)
-        })
-
-        if (this.#selectedProject) {
-            this.#eventBus.publish('projectSelected', this.#selectedProject);
-        }
-    }
+  }
 }
