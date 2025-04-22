@@ -7,7 +7,6 @@ import todoRepository from './repositories/todo/todoRepository';
 import projectFactory from './factories/project/projectFactory';
 import todoFactory from './factories/todo/todoFactory';
 import todoItem from './models/todo/todoItem';
-import project from './models/project/project';
 
 
 
@@ -32,10 +31,17 @@ class TodoApp {
     }
     
     initialize() {
-        if (this.projectRepository.getProjects().length === 0) {
+        if (localStorage.getItem("projectRepo")) {
+
+            if (localStorage.getItem("todoRepo")) {
+                this.todoRepository.getTodoRepo()
+            }
+            
+            this.projectRepository.getProjectRepo()
+
+        } else if (this.projectRepository.getProjects().length === 0) {
             const defaultProject = this.projectRepository.addProject("Default Project");
             
-            // Add the todo BEFORE selecting the project
             this.todoRepository.addTodo(
                 "Welcome",
                 "Gotta go to Will's",
@@ -43,7 +49,6 @@ class TodoApp {
                 defaultProject
             );
             
-            // Then select the project, which will trigger rendering
             this.projectRepository.selectProject(defaultProject);
         }
         

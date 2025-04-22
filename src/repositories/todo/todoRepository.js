@@ -18,6 +18,7 @@ export default class todoRepository {
             name, description, dueDate, project.id
         );
         this.#todos.push(todo);
+        this.saveTodoRepo()
         this.#eventBus.publish('todoCreated', todo)
         return todo;
     }
@@ -31,6 +32,7 @@ export default class todoRepository {
     deleteTodo(todo) {
         todo.deleteTodo()
         const project = this.#projectRepository.getProjectById(todo.projectId)
+        this.saveTodoRepo()
         this.#eventBus.publish('todoDeleted', project)
     }
 
@@ -49,11 +51,43 @@ export default class todoRepository {
             this.#todos[index] = updatedTodo;
             
             const project = this.#projectRepository.getProjectById(todo.projectId);
+
+            this.saveTodoRepo()
             
             this.#eventBus.publish('todoUpdated', {
                 todo: updatedTodo,
                 project: project
-            });
+            });  
         }
+
+
     }
+
+    saveTodoRepo() {
+        const todoData = this.#todos.map(todo => ({
+            name: todo.name,
+            description: todo.description,
+            dueDate: todo.dueDate,
+            projectId: todo.projectId,
+            active: todo.getActive()
+        }))
+
+        console.log(todoData)
+        localStorage.setItem("todoRepo", JSON.stringify(todoData))
+    }
+
+    getTodoRepo() {
+        const todoRepo = localStorage.getItem("todoRepo")
+        const todoRepoJson = JSON.parse(todoRepo)
+        this.#todos = []
+
+        todoRepoJson.forEach(todoData => {
+            const todo = this.#todoFactory.createTodo(todoData.name, todoData.description, todoData.dueDate, todoData.projectId)
+            if (todoData.active !== true) {
+                todo.deleteTodo()
+            }
+            this.#todos.push(todo)
+        })
+    }
+
 }
