@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "deploy": "./deploy.sh",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "echo test"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "prettier": "3.5.3"
-  }
+  },
+  "lint-staged": {
+      "**/*": "prettier --write --ignore-unknown"
+    }
+  
 }
